@@ -10,3 +10,7 @@ This is a Morse code encoder designed for the Arduino Uno board. It uses a simpl
 - Arduino Uno board.
 - A passive or active buzzer.
 - Arduino IDE for uploading the code.
+
+## Arduino Project
+
+[Morse Encoder Setup](img/diagram.png)
