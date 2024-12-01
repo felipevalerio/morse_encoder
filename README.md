@@ -13,4 +13,4 @@ This is a Morse code encoder designed for the Arduino Uno board. It uses a simpl
 
 ## Arduino Project
 
-[Morse Encoder Setup](img/diagram.png)
+[Morse Encoder Setup](img/diagram.PNG)
