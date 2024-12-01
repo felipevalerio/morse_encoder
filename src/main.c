@@ -3,7 +3,7 @@
 #include <ctype.h>
 
 int buzzer = 8; // pino digital 8, onde o buzzer está conectado
-bool played = false; // para tocar apenas 
+bool played = false; // para tocar apenas uma vez
 const char *text = "SOS"; // texto que será codificado
 
 
@@ -48,12 +48,12 @@ void play_beeps(const char *code) {
 
     if (*code == '.') { // Ponto curto
 
-      tone(buzzer, 4400);
+      tone(buzzer, 1500);
       delay(150);
     } else if (*code == '-') { // Traço longo
 
-      tone(buzzer, 4400);
-      delay(550);
+      tone(buzzer, 1500);
+      delay(500);
     }
 
     noTone(buzzer);
@@ -71,11 +71,12 @@ void play_beeps(const char *code) {
     //     delay(550);
     // }
   }
-  delay(1000);  // Espaço entre letras
+  delay(700);  // Espaço entre letras
 }
 
 
 void setup() {
+  Serial.begin(9600);
 	pinMode(buzzer, OUTPUT); //Definindo o pino buzzer como de saída.
 }
 
@@ -87,6 +88,10 @@ void loop() {
 
       letter[0] = toupper(text[i]); // letras maiusculas
       const char *code = get_morse_code(letter);
+
+      Serial.print(letter[0]);
+      Serial.print(" ");
+
       if (code != NULL) {
         play_beeps(code);
       }
